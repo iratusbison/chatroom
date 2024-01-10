@@ -9,5 +9,6 @@ urlpatterns = [
 	# login-section
 	path("auth/login/", LoginView.as_view
 		(template_name="chat/LoginPage.html"), name="login-user"),
-	path("auth/logout/", LogoutView.as_view(), name="logout-user"),
+	#path("auth/logout/", LogoutView.as_view(), name="logout-user"),
+    path("auth/logout/", chat_views.CustomLogoutView.as_view(), name="logout-user"),
 ]

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,8 +26,9 @@ SECRET_KEY = 'django-insecure-bzm&ppgi-7dsqp%gqf$*&)26-6qa2h5&9&$c5f20kafwc9m#jx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://vpvschat.onrender.com','vpvschat.onrender.com','127.0.0.1:8000','127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = ['https://vpvschat.onrender.com']
 
 CHANNEL_LAYERS = {
 	"default": {
@@ -62,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ChatApp.urls'
@@ -133,6 +136,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+'''STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'staticfiles')
+
+]'''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
